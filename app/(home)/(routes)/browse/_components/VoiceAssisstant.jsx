@@ -6,41 +6,13 @@ import Message from "./Message";
 import Input from "./Input";
 import History from "./History";
 import Clear from "./Clear";
+import { apikey } from "../../../../config"
+
+
+
 
 const VoiceAssisstant = () => {
-//     const { listening, transcript } = useSpeechRecognition();
-  
 
-//     async function callGptAPI(message)
-//     {
-//         const data = await fetch("https://api.openai.com/v1/chat/completion",{
-//             method: "POST",
-//             headers:(
-//                 "Content-Type":"application/json",
-//                 Authorization: `Bearer $("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")`
-//             ),
-
-//             body: JSON.stringify({
-                
-//                 messages: [
-//                 {
-                
-//                     role: "user",
-//                     content: "message"
-//                 }
-            
-//         ],
-        
-//         model: "gpt-3.5-turbo",
-//     }),
-
-//   }).then({res}=>res.json());
-  
-//   return data.choices[0].message.content;
-
-// } 
-
-// }
     const { listening, transcript } = useSpeechRecognition();
 
     const steps = [
@@ -55,7 +27,7 @@ const VoiceAssisstant = () => {
           end: true,
         },
       ];
-      const apikey = process.env.REACT_APP_OPENAI_API_KEY
+
       const handleSubmit = async () => {
         const prompt = {
           role: "user",
@@ -68,7 +40,7 @@ const VoiceAssisstant = () => {
         await fetch("https://api.openai.com/v1/chat/completions", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${""}`,
+            Authorization: `Bearer ${apikey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({

@@ -5,7 +5,7 @@ import Message from "./Message";
 import Input from "./Input";
 import History from "./History";
 import Clear from "./Clear";
-
+import { apikey } from "../../../../config";
 
 export default function App(text) {
 
@@ -20,7 +20,7 @@ export default function App(text) {
         await fetch("https://api.openai.com/v1/chat/completions", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${"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"}`,
+            Authorization: `Bearer ${apikey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({

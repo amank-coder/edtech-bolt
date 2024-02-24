@@ -5,6 +5,7 @@ import Message from "../browse/_components/Message";
 import Input from "../browse/_components/Input";
 import History from "../browse/_components/History";
 import Clear from "../browse/_components/Clear";
+import { apikey } from "../../../config";
 
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
         await fetch("https://api.openai.com/v1/chat/completions", {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${"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"}`,
+            Authorization: `Bearer ${apikey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
